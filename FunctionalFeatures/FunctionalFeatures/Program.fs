@@ -29,14 +29,17 @@ let rec firstEntryRec list n i = match list with
     |[] -> i
 
 let firstEntry list n = firstEntryRec list n 0
-printf "\n %d \n" (firstEntry [3;14;15;92;6;9] 6)
+printf "\n %d \n" (firstEntry [3; 14; 15; 92; 6; 9] 6)
 
 (*Checks, if the string is a palindrome*)
 let string = "1ahahaha1"
 let isPalindrome str = 
     let t = String.length str
-    let rec f i = if i > t/2 then true else 
-        if str.[i] = str.[t - i - 1] then f (i+1) else false
+    let rec f i = 
+        if i > t/2 then 
+            true 
+        else 
+            if str.[i] = str.[t - i - 1] then f (i+1) else false
     f 1
   
 

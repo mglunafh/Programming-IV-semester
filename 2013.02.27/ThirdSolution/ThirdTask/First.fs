@@ -1,7 +1,7 @@
 ﻿module First
 
 (* Our goal is to find a position in the given list with an option: sum of elements on previous and following positions must be maximal *)
-let пробелВНазвании list = 
+let ``пробел в названии`` list = 
 (*  'previous' is an element before the current or zero, 
     'acc' is a maximal sum of such kind,  
     'pos' will be returned in the end
@@ -18,4 +18,3 @@ let пробелВНазвании list =
         |[] -> 0
     f1 list 0 -1048576 0 0 
 
-printf "%d " (пробелВНазвании [1; 4; 8; 8])

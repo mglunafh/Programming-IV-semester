@@ -15,22 +15,3 @@ let rec calculate expression =
     |Value n -> n
 
 // have a time to think about reading expressions from string.
-let expression = 
-    Mul
-        (Sum
-            (Subtr
-                (Value 1, 
-                Sum (Value 4, Value 2)),
-            Mul
-                (Value 7, 
-                Mul (Value 4, Value 2))),
-        Mul
-            (Subtr
-                (Value 8, 
-                Sum (Value 3, Value 6)), 
-            Subtr
-                (Value 0,
-                Sum (Value 2, Value 1))))
-                               
-
-printf "%d " (calculate expression);

@@ -14,5 +14,3 @@ let third = List.fold (fun a b -> a + (1 - (b % 2))) 0
 
 let list = [3; 1; 4; 2; 7; 4; 2; 8; 3; 6; 0; 2; 1]
 
-
-printf "%d %d %d" (first list) (second list) (third list)

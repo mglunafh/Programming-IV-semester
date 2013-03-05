@@ -7,4 +7,3 @@ let unique list =
         |[] -> acc
     not <| uniqueTailRec list false
 
-printf "%b %b " (unique [1; 4; 8; 8]) (unique [1; 3; 4; 9])

@@ -2,7 +2,7 @@
 let rec fact n = if n > 0 then n * fact (n - 1) else 1 
 
 (*Tail-recursive calculation of Fibonacci numbers*)
-let rec fibTailRec n acc1 acc2 = if n > 1 then fibTailRec (n - 1) acc2 (acc1 + acc2)  else acc2
+let rec fibTailRec n acc1 acc2 = if n > 0 then fibTailRec (n - 1) acc2 (acc1 + acc2)  else acc2
 let fib n = fibTailRec n 0 1
 
 (*Inversion of a list*)

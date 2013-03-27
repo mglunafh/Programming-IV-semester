@@ -8,3 +8,6 @@ let flatten list =
     flatten_aux list []
 
 let superMap list f = flatten (List.map f list)
+
+let otherSuperMap listOfValues listOfFunctions = 
+    flatten (List.map (fun x -> List.map (fun f -> f x) listOfFunctions) listOfValues)

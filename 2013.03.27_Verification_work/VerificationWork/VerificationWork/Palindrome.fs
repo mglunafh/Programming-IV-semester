@@ -27,4 +27,4 @@ let lookingForMost index1 index2 =
             lookingFor (ind2 + 1) (ind2 + 1) nextAcc
         else 
             acc
-    f index1 index2 0
+    lookingFor index1 index2 0

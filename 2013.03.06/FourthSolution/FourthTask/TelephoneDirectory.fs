@@ -41,7 +41,13 @@ let rec cycle input container =
 
     | "5" ->
         let fileContent = File.ReadLines(@"data.txt") |> Seq.toList
-        let recordList = List.map (fun (x : string)-> let array = x.Split([|' '|]) in createRecord array.[0] array.[1]) fileContent
+        List.iter (printfn "%s_") fileContent 
+        let recordList = 
+            fileContent             |>
+            List.filter ((<>) "")   |>
+            List.map 
+                (fun (x : string)-> 
+                    let array = x.Split([|' '|]) in createRecord array.[0] array.[1]) 
         
         startNew (container @ recordList) ()
     | _ -> startNew container ()
@@ -49,4 +55,3 @@ let rec cycle input container =
 and startNew container () = 
     let input = System.Console.ReadLine ()
     if (input = "0") then () else cycle input container
-

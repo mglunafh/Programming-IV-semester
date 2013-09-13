@@ -1,5 +1,6 @@
 ﻿module LocalNet
 
+open System.IO
 
 type OperationSystem =      
     |Windows = 56 
@@ -11,7 +12,7 @@ type Computer =
     OS : OperationSystem; 
     mutable isInfected : bool; 
     mutable infectedJustNow : bool}     // computer with 'true' here should wait one turn 
-                                        // before 'infestation' ability getting allowed
+                                        // before 'infestation' is unlocked
 
 type Net = {computers : Computer []; graph : int [] []}
 
@@ -31,3 +32,15 @@ let infestation net =
     
     Array.iter (fun x -> if (x.isInfected && not x.infectedJustNow) then infect x) net.computers
     nextTurn net.computers
+    net
+
+let showInfo (net : Net) = Array.iteri (fun i x -> printfn "Computer №%d %b" i x.isInfected)  net.computers
+
+let letsRun net = 
+    net |> infestation |> showInfo
+    while true do
+        System.Console.WriteLine("Run next step?(y/_)\n") 
+        match (System.Console.ReadLine()) with
+        |"y" -> net |> infestation |> showInfo
+        |_ -> ()
+        

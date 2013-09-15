@@ -4,8 +4,8 @@ let mutable threadResult = 0
 let mutable dumbResult = 0
 
 let countOnes threadCount multiplyer = 
-    let buffer = Array.init (threadCount * multiplyer) (fun i -> 1)
-    let threadFlags = Array.init threadCount (fun i -> 0)
+    let buffer = Array.init (threadCount * multiplyer) (fun _ -> 1)
+    let threadFlags = Array.init threadCount (fun _ -> 0)
     Array.iter (fun i -> dumbResult <- dumbResult + 1) buffer
 
     for i in 0..threadCount do 

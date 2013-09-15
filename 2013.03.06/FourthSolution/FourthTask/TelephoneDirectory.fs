@@ -42,9 +42,15 @@ let rec cycle input container =
     | "5" ->
         let fileName = readLine()
         let fileContent = File.ReadLines(fileName) |> Seq.toList
-        let recordList = List.map (fun (x : string)-> let array = x.Split([|' '|]) in createRecord array.[0] array.[1]) fileContent
-        
+        List.iter (printfn "%s_") fileContent 
+        let recordList = 
+            fileContent             |>
+            List.filter ((<>) "")   |>
+            List.map 
+                (fun (x : string)-> 
+                    let array = x.Split([|' '|]) in createRecord array.[0] array.[1]) 
         startNew (container @ recordList) ()
+		
     | _ -> startNew container ()
 
 and startNew container () = 

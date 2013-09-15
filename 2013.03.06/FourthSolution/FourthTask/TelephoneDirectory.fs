@@ -40,7 +40,8 @@ let rec cycle input container =
         startNew container ()
 
     | "5" ->
-        let fileContent = File.ReadLines(@"data.txt") |> Seq.toList
+        let fileName = readLine()
+        let fileContent = File.ReadLines(fileName) |> Seq.toList
         let recordList = List.map (fun (x : string)-> let array = x.Split([|' '|]) in createRecord array.[0] array.[1]) fileContent
         
         startNew (container @ recordList) ()
@@ -50,3 +51,15 @@ and startNew container () =
     let input = System.Console.ReadLine ()
     if (input = "0") then () else cycle input container
 
+let firstEntry () = 
+    let welcome = 
+        "Hey there! This is a program for simple telephone directory, try and explore it!\n" +
+        "Possible actions you can do in this console:\n" + 
+        "1 is for creating a new record;\n" + 
+        "2 is for searching record by name and\n" + 
+        "3 is for searching by number;\n" + 
+        "4 -- and program saves all changes in a file, you just need to enter a desired name;\n" +
+        "5 is for loading records from given file\n" + 
+        "0 means shutdown of program. Warning: in this version unsaved changes will be lost, once you press this digit ._."
+    printfn "%s" welcome
+    startNew [] ()

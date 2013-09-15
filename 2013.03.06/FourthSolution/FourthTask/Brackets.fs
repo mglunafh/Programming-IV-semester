@@ -11,5 +11,5 @@ let isCorrect (str : string) =
             | (_, x) when x = '(' || x = '[' || x = '{' -> f (x :: stack) (i + 1) 
             | _ -> f stack (i + 1)
         else
-            if stack = [] then true else false
+            (stack = [])
     f [] 0

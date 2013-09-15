@@ -3,10 +3,8 @@
 /// three implementations of function counting even numbers in list 
 /// map, filter, and fold 
 
-let (%) a b = let dividend = a / b in (a - dividend * b)
 
-let sum = List.fold (+) 0
-let first l = sum (List.map (fun x -> 1 - (x % 2)) l)
+let first l = List.sum (List.map (fun x -> 1 - (x % 2)) l)
 
 let second l = List.length (List.filter (fun x -> x % 2 = 0) l)
                                                           
